@@ -42,15 +42,15 @@ notesRouter.patch("/update/:noteID", async (req, res) => {
 
 notesRouter.delete("/delete/:noteID", async (req, res) => {
     const noteID = req.params.noteID
-    const userID = req.body.userID
-    const note = await NoteModel.findOne({_id:noteID})
-    if(userID !== note.userID){
-        res.send("Not authorised")
-    }
-    else{
+    // const userID = req.body.userID
+    // const note = await NoteModel.findOne({_id:noteID})
+    // if(userID !== note.userID){
+    //     res.send("Not authorised")
+    // }
+    // else{
         await NoteModel.findByIdAndDelete({_id : noteID})
         res.send({"msg" : "Note deleted successfully"})
-    }
+    // }
 })
 
 
